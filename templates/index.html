@@ -6,7 +6,46 @@
 
 {% block body %}
 
-<h1 class="text-center">From Template Inheritance</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron p-3">
+                <h2>Manage <b>Employees </b>
+                    <button type="button" class="btn btn-success float-right"
+                        data-toggle="modal" data-target="#mymodal">Add New
+                        Employees
+                    </button>
+                </h2>
+
+                <table class="table table-hover table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <th>9763</th>
+                        <th>Owali</th>
+                        <th>asd;lfkjslaf@gmail.com</th>
+                        <th>0158665889</th>
+                        <th>
+                            <button href="" type="button"
+                                class="btn btn-primary btn-xs"
+                                data-toggle="modal"
+                                data-target="modal-edit">Edit</button>
+                            <button href="" type="button"
+                                class="btn btn-danger btn-xs"
+                                onclick="alert('confirm delete')">Delete</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 
 {% endblock %}
