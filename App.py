@@ -1,13 +1,16 @@
-from flask import Flask, render_template
+from flask import (Flask, flash, jsonify, redirect, render_template, request,
+                   url_for)
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = 'secret'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/crud-flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/crud'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+cors = CORS(app)
 
 
 class Data(db.Model):
@@ -22,9 +25,24 @@ class Data(db.Model):
         self.phone = phone
 
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def Index():
     return render_template("index.html")
+
+
+# insert data to database
+@app.route("/insert", methods=['POST'])
+def insert():
+    if(request.method == 'POST'):
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+
+        my_data = Data(name, email, phone)
+        db.session.add(my_data)
+        db.session.commit()
+
+        return redirect(url_for('Index'))
 
 
 if __name__ == "__main__":
