@@ -27,7 +27,8 @@ class Data(db.Model):
 
 @app.route("/", methods=['GET'])
 def Index():
-    return render_template("index.html")
+    all_data = Data.query.all()
+    return render_template("index.html", data=all_data)
 
 
 # insert data to database

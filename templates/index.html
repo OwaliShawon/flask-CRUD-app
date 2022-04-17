@@ -45,11 +45,12 @@
                         <th>Phone</th>
                         <th>Action</th>
                     </tr>
+                    {% for employee in data %}
                     <tr>
-                        <th>9763</th>
-                        <th>Owali</th>
-                        <th>asd;lfkjslaf@gmail.com</th>
-                        <th>0158665889</th>
+                        <th>{{employee.id}}</th>
+                        <th>{{employee.name}}</th>
+                        <th>{{employee.email}}</th>
+                        <th>{{employee.phone}}</th>
                         <th>
                             <button href="" type="button"
                                 class="btn btn-primary btn-xs"
@@ -103,6 +104,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </table>
             </div>
 
