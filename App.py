@@ -42,6 +42,8 @@ def insert():
         db.session.add(my_data)
         db.session.commit()
 
+        flash('Record inserted successfully')
+
         return redirect(url_for('Index'))
 
 
