@@ -52,13 +52,13 @@
                         <th>{{employee.email}}</th>
                         <th>{{employee.phone}}</th>
                         <th>
-                            <button href="/update/{{employee.id}}" type="button"
+                            <a href="/update/{{employee.id}}" type="button"
                                 class="btn btn-primary btn-xs"
                                 data-toggle="modal"
-                                data-target="#modal-edit{{employee.id}}">Edit</button>
-                            <button href="" type="button"
+                                data-target="#modal-edit{{employee.id}}">Edit</a>
+                            <a href="/delete/{{employee.id}}"
                                 class="btn btn-danger btn-xs"
-                                onclick="alert('confirm delete')">Delete</button>
+                                onclick="confirm('Are you sure to delete?')">Delete</a>
                         </th>
                     </tr>
 
